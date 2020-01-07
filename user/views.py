@@ -21,6 +21,7 @@ AES_IV = 'asw56hxr8q1jfkoo'
 
 def response_payload(token, user=None):
     return {
+        'id': user.pk,
         'token': token,
         'user': user.username
     }
@@ -32,7 +33,7 @@ class Login(JSONWebTokenAPIView, ResView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
 
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             user = serializer.object.get('user') or request.user
             token = serializer.object.get('token')
             response_data = response_payload(token, user)
@@ -50,6 +51,9 @@ class Login(JSONWebTokenAPIView, ResView):
 
 
 class Captcha(ResView):
+    authentication_classes = []
+    permission_classes = []
+
     def get_chars_str(self):
         _letter_cases = "abcdefghjkmnpqrstuvwxy"
         _upper_cases = _letter_cases.upper()

@@ -13,13 +13,14 @@ def custom_exception_handler(exc, context):
     if response:
         '''drf内部错误'''
         detail = response.data.get('detail')
+        non_field_errors = response.data.get('non_field_errors')
         if detail:
-            # error_log.warning('err_type:%s, err_detail:%s' % (detail.code, detail))
-            if detail.code == 'authentication_failed':
-                return Response({"code": 1001, "msg": detail})
-            else:
-                return Response({"code": 1001, "msg": detail})
-        return response
+            return Response({"code": 1001, "msg": detail})
+
+        if non_field_errors:
+            return Response({"code": 1001, "msg": non_field_errors[0]})
+
+        return Response({"code": 1001, "msg": 'error', 'data': response.data})
     # 没有经过drf处理的异常比如代码报错 我们可以捕捉下来写入日志
     else:
         '''异常写入日志'''
@@ -29,8 +30,10 @@ def custom_exception_handler(exc, context):
         trace = exc.__traceback__
         while trace:
             error = '"%s"  line %s' % (trace.tb_frame.f_code.co_filename, trace.tb_lineno)
+            print('\033[31;0mERROR: %s \033[0m' % error)
             error_line.append(error)
             trace = trace.tb_next
+        print('\033[31;0m%s \033[0m' % error_info)
         # error_log.error(f'error_views:{error_views} | error_info:{error_info} | error_line:{error_line[::-1]}')
         error = '服务器内部错误'
 
