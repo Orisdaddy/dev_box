@@ -4,6 +4,8 @@ from dev_tool.models import Services
 class CommonHandler:
     def __init__(self, client):
         self.client = client
+        self.chan = None
+        self.is_root = False
 
     def connect(self, pk):
         try:
@@ -14,15 +16,18 @@ class CommonHandler:
                 username=server_obj.username,
                 password=server_obj.password
             )
+            if server_obj.username == 'root':
+                self.is_root = True
+            self.chan = self.client.invoke_shell()
             res = {
                 'mode': 'login',
                 'status': 'success',
                 'data': {
                     'hostname': server_obj.host,
-                    'username': server_obj.username
+                    'username': server_obj.username,
                 }
             }
-            return res
+            return res, self.chan
         except Exception as e:
             res = {
                 'mode': 'login',
@@ -32,8 +37,10 @@ class CommonHandler:
             return res
 
     def push(self, common):
-        _, stdout, _ = self.client.exec_command(common)
-        return stdout.read().decode('utf-8')
+        self.chan.send(common + '\r')
 
     def close(self):
         self.client.close()
+
+
+
