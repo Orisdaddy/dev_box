@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from dev_tool.models import PostManHistory
+from dev_tool.models import RequestHistory
 
 
 class ReqHistorySer(serializers.ModelSerializer):
     class Meta:
-        model = PostManHistory
+        model = RequestHistory
         exclude = ('date_time',)
 
 

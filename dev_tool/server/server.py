@@ -9,7 +9,6 @@ import ctypes
 
 
 def _async_raise(tid, exctype):
-    """raises the exception, performs cleanup if needed"""
     tid = ctypes.c_long(tid)
     if not inspect.isclass(exctype):
         exctype = type(exctype)
@@ -17,8 +16,6 @@ def _async_raise(tid, exctype):
     if res == 0:
         raise ValueError("invalid thread id")
     elif res != 1:
-        # """if it returns a number greater than one, you're in trouble,
-        # and you should call it again with exc=NULL to revert the effect"""
         ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, None)
         raise SystemError("PyThreadState_SetAsyncExc failed")
 
@@ -56,17 +53,10 @@ class MachineShellConsumer(WebsocketConsumer):
         text_data = json.loads(text_data)
         mode = text_data['mode']
         if mode == 'common':
-            res = client.push(text_data['data'])
-            # res = {
-            #     'mode': 'common',
-            #     'data': res,
-            # }
-            # res = json.dumps(res).replace(r'\n', r'\r\n')
-            # self.send(res)
+            client.push(text_data['data'])
 
 
 def recv(chan, ws):
     while True:
         res = chan.recv(65535)
-        print(res)
         ws.send(res.decode('utf-8'))

@@ -2,7 +2,7 @@ from django.db import models
 from user.models import User
 
 
-class PostManHistory(models.Model):
+class RequestHistory(models.Model):
     host = models.CharField(max_length=64)
     method = models.CharField(max_length=12)
     params = models.TextField(max_length=10240, null=True)

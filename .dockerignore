@@ -1,0 +1,4 @@
+.git
+logs/*
+.github
+django.db

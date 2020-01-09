@@ -12,16 +12,16 @@ class ReqHistoryList(ListModelMixin, ListDestroyModelMixin, GenericAPIView):
     serializer_class = simu.ReqHistoryListSer
 
     def get(self, request):
-        self.queryset = models.PostManHistory.objects.filter(user_id=request.user.pk)
+        self.queryset = models.RequestHistory.objects.filter(user_id=request.user.pk)
         return self.list(request)
 
     def delete(self, request):
-        self.queryset = models.PostManHistory.objects.filter(user_id=request.user.pk)
+        self.queryset = models.RequestHistory.objects.filter(user_id=request.user.pk)
         return self.destroy(request)
 
 
 class ReqHistory(DataModelViewSet):
-    queryset = models.PostManHistory.objects.all()
+    queryset = models.RequestHistory.objects.all()
     serializer_class = simu.ReqHistorySer
 
     def post(self, request, **kwargs):
