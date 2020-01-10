@@ -1,9 +1,11 @@
 from django.conf import settings
 from django.core.management import execute_from_command_line
 import pymysql
+import os
 
 
 def create_database():
+    print(os.environ)
     db_conf = settings.DATABASES.get('default')
     conn = pymysql.connect(
         host=db_conf.get('HOST', '127.0.0.1'),
