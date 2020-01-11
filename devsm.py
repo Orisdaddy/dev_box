@@ -3,9 +3,9 @@ import subprocess
 import redis
 import sys
 
-conn = redis.Redis(host=server_conf.REDIS_HOST, db=2)
+conn = redis.Redis(host=server_conf.REDIS_HOST, db=2, decode_responses=True)
 CMD = [
-    'start', 'stop'
+    'start', 'stop', 'restart'
 ]
 
 
@@ -29,11 +29,13 @@ def start_server():
 def stop_server():
     g_pid = conn.get('g_pid')
     d_pid = conn.get('d_pid')
-    subprocess.call(f'kill {g_pid} & kill {d_pid}', shell=True)
+    if g_pid and d_pid:
+        subprocess.call(f'kill {g_pid} & kill {d_pid}', shell=True)
 
 
 def restart_server():
     stop_server()
+
     start_server()
 
 
