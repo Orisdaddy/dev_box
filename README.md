@@ -2,6 +2,8 @@
 
 后端部分(djangorestframework)
 
+前端部分(Vue) https://github.com/824750130/dev_box_vue.git
+
 整合程序员开发工具的一款在线开发者平台
 
 
@@ -41,10 +43,19 @@ vi config/server_conf.py
 4.启动服务
 
 ```shell
-python3 run_server.py
+# 启动服务
+python3 devsm.py start
+# 关闭服务
+python3 devsm.py stop
+# 重启服务
+python3 devsm.py restart
 ```
 
 
+5.创建用户
+```shell
+python3 manage.py createsuperuser
+```
 
 ## docker启动
 

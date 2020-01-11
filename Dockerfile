@@ -5,4 +5,4 @@ COPY . /opt/dev_box
 
 RUN python3 docker_build.py
 
-CMD python3 run_server.py
+CMD python3 devsm.py start

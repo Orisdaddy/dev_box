@@ -1,3 +1,4 @@
+from config import server_conf
 import os
 import datetime
 
@@ -72,7 +73,7 @@ DATABASES = {
         'NAME': 'dev_box',
         'USER': 'root',
         'PASSWORD': '123456',
-        'HOST': '127.0.0.1',
+        'HOST': server_conf.MYSQL_HOST,
         'PORT': 3306,
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
@@ -130,7 +131,7 @@ CHANNEL_LAYERS = {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
             "hosts": [
-                ('localhost', 6379)
+                (server_conf.REDIS_HOST, 6379)
             ],
         },
     },
