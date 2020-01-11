@@ -1,6 +1,8 @@
 FROM python:3.6.7
 
-RUN yum -y install mysql-devel
-RUN python3 build.py
+WORKDIR /opt/dev_box
+COPY . /opt/dev_box
 
-CMD ['python3', 'run_server.py']
+RUN python3 docker_build.py
+
+CMD python3 run_server.py
