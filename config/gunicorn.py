@@ -1,5 +1,5 @@
 import multiprocessing
-from djangoDT.config import server_conf
+from config import server_conf
 
 bind = f'{server_conf.HOST}:{str(server_conf.WSGI_PORT)}'
 

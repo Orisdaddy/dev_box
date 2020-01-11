@@ -64,7 +64,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'djangoDT.wsgi.application'
-ASGI_APPLICATION = 'djangoDT.asgi.application'
+ASGI_APPLICATION = 'djangoDT.routing.application'
 
 DATABASES = {
     'default': {

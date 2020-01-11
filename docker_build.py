@@ -21,5 +21,4 @@ def start():
     print('Complete!')
 
 
-if __name__ == '__main__':
-    start()
+start()

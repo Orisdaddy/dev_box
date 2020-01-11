@@ -18,7 +18,7 @@ def create_database():
 
 
 def migrate():
-    execute_from_command_line([settings.BASE_DIR + '/djangoDT/manage.py', 'migrate'])
+    execute_from_command_line([settings.BASE_DIR + '/manage.py', 'migrate'])
 
 
 def build_db():
