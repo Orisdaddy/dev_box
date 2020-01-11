@@ -11,7 +11,6 @@ if __name__ == '__main__':
         stdin=sys.stdin,
         stdout=sys.stdout
     )
-    print('启动daphne')
     subprocess.Popen(
         f'daphne -b {server_conf.HOST} -p {server_conf.ASGI_PORT} djangoDT.asgi:application',
         shell=True,
