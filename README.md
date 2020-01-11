@@ -64,7 +64,7 @@ docker build --tag=dev_box .
 
 ```shell
 # -p 端口映射 宿主机开放端口:容器中服务端口
-docker run -p 80:80 dev_box
+docker run -p 80:80 -p 8000:8000 dev_box
 ```
 
 
