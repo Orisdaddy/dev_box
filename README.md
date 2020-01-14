@@ -1,4 +1,6 @@
-![faviconmin](static/faviconmin.png)
+<div align="center">
+<img src="static/faviconmin.png"/>
+</div>
 
 # DevBox
 
