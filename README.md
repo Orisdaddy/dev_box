@@ -1,8 +1,10 @@
+
+
 # DevBox
 
-后端部分(djangorestframework)
+后端(djangorestframework)
 
-前端部分(Vue) https://github.com/824750130/dev_box_vue.git
+前端(Vue) https://github.com/824750130/dev_box_vue.git
 
 整合程序员开发工具的一款在线开发者平台
 
@@ -75,7 +77,7 @@ docker build --tag=dev_box .
 
 ```shell
 # -p 端口映射 宿主机开放端口:容器中服务端口
-docker run -p 80:80 -p 8000:8000 dev_box
+docker run -p 8001:8001 -p 8000:8000 dev_box
 ```
 
 
