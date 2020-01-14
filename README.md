@@ -1,5 +1,5 @@
 <div align="center">
-<img src="static/faviconmin.png"/>
+    <img src="static/faviconmin.png"/>
 </div>
 
 # DevBox
