@@ -1,4 +1,4 @@
-
+![faviconmin](static/faviconmin.png)
 
 # DevBox
 
