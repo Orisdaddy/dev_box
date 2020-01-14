@@ -21,6 +21,3 @@ class MachineSessionList(ListModelMixin, GenericAPIView):
     def get(self, request):
         self.queryset = models.Services.objects.filter(user_id=request.user.pk)
         return self.list(request)
-
-
-

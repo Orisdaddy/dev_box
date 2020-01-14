@@ -6,6 +6,7 @@ import threading
 
 import inspect
 import ctypes
+import re
 
 
 def _async_raise(tid, exctype):
@@ -53,10 +54,20 @@ class MachineShellConsumer(WebsocketConsumer):
         text_data = json.loads(text_data)
         mode = text_data['mode']
         if mode == 'common':
+            if re.findall('^( )*su( )*$', text_data['data']):
+                res = {
+                    'mode': 'other',
+                    'msg': '请开启新会话切换用户'
+                }
+                self.send(json.dumps(res))
             client.push(text_data['data'])
 
 
 def recv(chan, ws):
     while True:
         res = chan.recv(65535)
-        ws.send(res.decode('utf-8'))
+        result = {
+            'mode': 'common',
+            'msg': res.decode('utf-8')
+        }
+        ws.send(json.dumps(result))
