@@ -88,7 +88,7 @@ docker run -p 8001:8001 -p 8000:8000 dev_box
 
 ## 功能介绍
 
-<table>
+<table style="width: 882px">
   <thead style="text-align: center">
     <tr>
       <th>模块</th>
@@ -132,3 +132,4 @@ docker run -p 8001:8001 -p 8000:8000 dev_box
     </tr>
   </tbody>
 </table>
+
