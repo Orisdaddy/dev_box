@@ -61,7 +61,9 @@ python3 devsm.py restart
 python3 manage.py createsuperuser
 ```
 
-## docker启动
+
+
+### docker启动
 
 1.安装环境docker&mysql&redis
 
@@ -84,3 +86,49 @@ docker run -p 8001:8001 -p 8000:8000 dev_box
 
 
 
+## 功能介绍
+
+<table>
+  <thead style="text-align: center">
+    <tr>
+      <th>模块</th>
+      <th>功能</th>
+      <th>进度</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>API接口调试</td>
+      <td>API接口调试</td>
+      <td>已完成</td>
+    </tr>
+    <tr>
+      <td rowspan="2">远程Linux操作</td>
+      <td>交互式终端</td>
+      <td>待测试</td>
+    </tr>
+    <tr>
+      <td>Sftp文件传输</td>
+      <td>待完善</td>
+    </tr>
+    <tr>
+      <td rowspan="2">数据库连接模块</td>
+      <td>SQL数据库</td>
+      <td>待开发</td>
+    </tr>
+    <tr>
+      <td>NO SQL数据库</td>
+      <td>待开发</td>
+    </tr>
+    <tr>
+      <td>markdown文档管理</td>
+      <td>markdown文档管理</td>
+      <td>待开发</td>
+    </tr>
+    <tr>
+      <td>项目管理</td>
+      <td>项目管理</td>
+      <td>待开发</td>
+    </tr>
+  </tbody>
+</table>
