@@ -34,7 +34,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    # 'djangoDT.middleware.ResponseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -124,7 +123,18 @@ JWT_AUTH = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
-
+CORS_ALLOW_HEADERS = (
+    'XMLHttpRequest',
+    'X_FILENAME',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+)
 
 CHANNEL_LAYERS = {
     'default': {

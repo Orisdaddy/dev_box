@@ -15,4 +15,6 @@ urlpatterns = [
         'put': 'update'
     })),
 
+    path('machine/upload_file', machine.UploadFile.as_view())
+
 ]

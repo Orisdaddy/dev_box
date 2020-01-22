@@ -27,7 +27,6 @@ class MachineSessionSer(serializers.ModelSerializer):
                 password=password
             )
             cli.close()
-
         except ssh_exception.NoValidConnectionsError:
             raise ValidationError('未找到该主机ip')
         except ssh_exception.AuthenticationException:
