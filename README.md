@@ -98,9 +98,9 @@ docker run -p 8001:8001 -p 8000:8000 dev_box
   </thead>
   <tbody>
     <tr>
-      <td>API接口调试</td>
-      <td>API接口调试</td>
-      <td>已完成</td>
+      <td>API接口调试&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+      <td>API接口调试&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+      <td>已完成&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
     </tr>
     <tr>
       <td rowspan="2">远程Linux操作</td>
