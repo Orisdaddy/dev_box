@@ -67,7 +67,9 @@ python3 manage.py createsuperuser
 
 1.安装环境docker&mysql&redis
 
-
+```
+yum install -y docker & apt-get install -y docker
+```
 
 2.构建docker容器
 
