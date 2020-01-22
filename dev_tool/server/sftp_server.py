@@ -3,7 +3,6 @@ from .handler import FileHandler
 from dev_tool.paramiko_io.sftp_client import IoSftpClient
 import paramiko
 import json
-import threading
 
 
 class SftpConsumer(WebsocketConsumer):
