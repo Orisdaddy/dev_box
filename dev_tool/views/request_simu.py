@@ -1,3 +1,5 @@
+import json
+
 from rest_framework.mixins import ListModelMixin
 from rest_framework.generics import GenericAPIView
 from common.viewset import DataModelViewSet
@@ -5,7 +7,6 @@ from common.mixin import ListDestroyModelMixin
 
 from dev_tool.serializers import request_simu as simu
 from dev_tool import models
-import json
 
 
 class ReqHistoryList(ListModelMixin, ListDestroyModelMixin, GenericAPIView):

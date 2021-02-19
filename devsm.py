@@ -1,7 +1,7 @@
-from config import server_conf
 import subprocess
 import redis
 import sys
+from config import server_conf
 
 conn = redis.Redis(host=server_conf.REDIS_HOST, db=2, decode_responses=True)
 CMD = [

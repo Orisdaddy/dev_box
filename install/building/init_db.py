@@ -1,6 +1,6 @@
+import pymysql
 from django.conf import settings
 from django.core.management import execute_from_command_line
-import pymysql
 
 
 def create_database():

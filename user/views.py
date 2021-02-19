@@ -1,3 +1,13 @@
+import random
+import time
+import json
+import base64
+import datetime
+
+from io import BytesIO
+from Crypto.Cipher import AES
+from binascii import b2a_hex
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 from common.view import ResView
 from user.jwt.serializer import LoginSerializer
@@ -5,15 +15,6 @@ from user.jwt.serializer import LoginSerializer
 from rest_framework_jwt.views import JSONWebTokenAPIView
 from rest_framework_jwt.settings import api_settings
 
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
-from io import BytesIO
-from Crypto.Cipher import AES
-from binascii import b2a_hex
-import random
-import time
-import json
-import base64
-import datetime
 
 AES_KEY = 'as56hr1jko_saoqp'
 AES_IV = 'asw56hxr8q1jfkoo'

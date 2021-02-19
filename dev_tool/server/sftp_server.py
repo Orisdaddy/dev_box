@@ -1,8 +1,9 @@
+import paramiko
+import json
+
 from channels.generic.websocket import WebsocketConsumer
 from .handler import FileHandler
 from dev_tool.paramiko_io.sftp_client import IoSftpClient
-import paramiko
-import json
 
 
 class SftpConsumer(WebsocketConsumer):

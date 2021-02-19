@@ -1,12 +1,12 @@
-from channels.generic.websocket import WebsocketConsumer
-from .handler import CommonHandler
-import paramiko
-import json
-import threading
-
 import inspect
 import ctypes
 import re
+
+import paramiko
+import json
+import threading
+from channels.generic.websocket import WebsocketConsumer
+from .handler import CommonHandler
 
 
 def _async_raise(tid, exctype):

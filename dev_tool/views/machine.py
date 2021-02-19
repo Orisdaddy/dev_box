@@ -1,3 +1,5 @@
+import os
+
 from django.conf import settings
 from rest_framework.mixins import ListModelMixin
 from rest_framework.generics import GenericAPIView
@@ -6,7 +8,6 @@ from common.view import ResView
 
 from dev_tool.serializers import machine as mc
 from dev_tool import models
-import os
 
 
 class MachineSession(DataModelViewSet):

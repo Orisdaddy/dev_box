@@ -1,11 +1,12 @@
-from rest_framework_jwt.serializers import JSONWebTokenSerializer
-from rest_framework.exceptions import ValidationError
+import time
+import json
 
 from user import views
 from Crypto.Cipher import AES
 from binascii import a2b_hex
-import time
-import json
+
+from rest_framework_jwt.serializers import JSONWebTokenSerializer
+from rest_framework.exceptions import ValidationError
 
 
 class LoginSerializer(JSONWebTokenSerializer):

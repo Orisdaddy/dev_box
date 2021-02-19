@@ -1,6 +1,7 @@
+import logging
+
 from rest_framework.views import exception_handler
 from rest_framework.response import Response
-import logging
 
 error_log = logging.getLogger('')
 

@@ -1,9 +1,10 @@
+import paramiko
+
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
 from dev_tool.models import Services
 from paramiko import ssh_exception
-import paramiko
 
 
 class MachineSessionSer(serializers.ModelSerializer):
