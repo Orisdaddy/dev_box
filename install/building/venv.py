@@ -28,7 +28,7 @@ def create_env(venv_name):
 
     # 下载python package
     p = subprocess.Popen(
-        rf"source {venv_name}/bin/activate & pip3 install -r requirement/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple",
+        rf"source {venv_name}/bin/activate && pip3 install -r requirement/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple",
         shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE
     )
     for line in iter(p.stdout.readline, b''):
