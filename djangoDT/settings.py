@@ -70,7 +70,7 @@ ASGI_APPLICATION = 'djangoDT.routing.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dev_box',
+        'NAME': 'devbox',
         'USER': 'root',
         'PASSWORD': '123456',
         'HOST': server_conf.MYSQL_HOST,
@@ -121,7 +121,7 @@ REST_FRAMEWORK = {
 
 APPEND_SLASH = False
 JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7)
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=365)
 }
 
 CORS_ORIGIN_ALLOW_ALL = True

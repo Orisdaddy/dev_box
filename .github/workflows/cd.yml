@@ -1,8 +1,8 @@
 name: Python CD
 
 on:
-  push:
-    branches: [master]
+  release:
+    types: [ created ]
 
 jobs:
   build:
