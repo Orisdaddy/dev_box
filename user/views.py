@@ -1,3 +1,4 @@
+import os
 import random
 import time
 import json
@@ -10,6 +11,7 @@ from binascii import b2a_hex
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 from common.view import ResView
+from user.models import User
 from user.jwt.serializer import LoginSerializer
 
 from rest_framework_jwt.views import JSONWebTokenAPIView
@@ -26,6 +28,28 @@ def response_payload(token, user=None):
         'token': token,
         'user': user.username
     }
+
+
+class AddSubUser(ResView):
+    def post(self, request, *args, **kwargs):
+        username = request.data.get('username')
+        password = request.data.get('password')
+        parent = request.data.get('parent')
+        authority = request.data.get('authority')
+        parent_user = User.objects.get(pk=parent)
+        user = User.objects.filter(username=username)
+        if user:
+            return self.error(msg='用户名已被占用')
+        if username and password:
+            User.objects.create_user(
+                username=username,
+                password=password,
+                parent=parent_user,
+                authority=authority
+            )
+            return self.success(msg='添加成功')
+        else:
+            return self.error(msg='缺少关键参数')
 
 
 class Login(JSONWebTokenAPIView, ResView):
@@ -157,7 +181,12 @@ class Captcha(ResView):
 
     def get(self, request):
         io = BytesIO()
-        img, code = self.create_validate_code((120, 30), self.get_chars_str(), font_type=r"user\ttf\monaco.ttf")
+        img, code = self.create_validate_code(
+            (120, 30),
+            self.get_chars_str(),
+            font_type=os.path.join("user", "ttf", "monaco.ttf")
+        )
+
         img.save(io, 'png')
         b64img = base64.b64encode(io.getvalue())
 
@@ -175,6 +204,8 @@ class Captcha(ResView):
         iv = AES_IV.encode()
         cipher = AES.new(key, AES.MODE_CFB, iv)
         capt_code = b2a_hex(cipher.encrypt(capt_res.encode()))
+        # close IO
+        io.close()
         data = {
             'img': b64img,
             'captcha_code': capt_code
