@@ -16,6 +16,6 @@ jobs:
           python-version: 3.7
       - run: pip install paramiko==2.7.1
       - name: Deploy-upload
-        run: python deploy/upload.py ${{ secrets.SSH_HOST }} ${{ secrets.SSH_USERNAME }} ${{ secrets.PASSWORD }} ${{ secrets.PRO_PATH }}
+        run: python script/deploy/upload.py ${{ secrets.SSH_HOST }} ${{ secrets.SSH_USERNAME }} ${{ secrets.PASSWORD }} ${{ secrets.PRO_PATH }}
       - name: Deploy-restart
-        run: python deploy/restart.py ${{ secrets.SSH_HOST }} ${{ secrets.SSH_USERNAME }} ${{ secrets.PASSWORD }} ${{ secrets.PRO_PATH }}
+        run: python script/deploy/restart.py ${{ secrets.SSH_HOST }} ${{ secrets.SSH_USERNAME }} ${{ secrets.PASSWORD }} ${{ secrets.PRO_PATH }}
