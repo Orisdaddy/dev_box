@@ -60,7 +60,7 @@ python3 devsm.py restart
 
 5.创建用户
 ```shell
-python3 manage.py createsuperuser
+python3 manage.py createroot
 ```
 
 
