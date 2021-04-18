@@ -1,6 +1,6 @@
 import subprocess
 import os
-from install.building import venv
+from script.install.building import venv
 
 
 def start():
@@ -16,7 +16,7 @@ def start():
         p.stdout.close()
         p.wait()
     try:
-        from install.building import init_db
+        from script.install.building import init_db
     except Exception as e:
         print(e)
         print('pip包构建失败')
